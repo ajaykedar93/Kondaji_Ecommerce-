@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&family=Lato:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Components */
+@layer components {
+  .primary-btn {
+    @apply bg-pink-600 text-white font-semibold py-3 px-6 rounded-xl transform transition duration-300 ease-in-out;
+  }
+
+  .primary-btn:hover {
+    @apply scale-110;
+  }
+
+  .primary-btn:active {
+    @apply scale-95;
+  }
+
+  .input {
+    @apply border border-gray-300 p-2 rounded shadow-sm focus:ring-2 focus:ring-green-500;
+  }
+}
+
+/* Raw CSS Shadow Overrides */
+.primary-btn {
+  box-shadow: 0px 10px 20px rgba(255, 65, 108, 0.4);
+}
+.primary-btn:hover {
+  box-shadow: 0px 15px 25px rgba(255, 65, 108, 0.5);
+}
+.primary-btn:active {
+  box-shadow: 0px 8px 15px rgba(255, 65, 108, 0.3);
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .drop-shadow {
+    filter: drop-shadow(-6px 8px 15px rgba(0, 0, 0, 0.2));
+  }
+
+  .sticky-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: white;
+  }
+
+  .page-content {
+    margin-top: 75px; /* Adjust based on actual navbar height */
+    padding-top: 35px;
+  }
+
+  .text-element {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+}
