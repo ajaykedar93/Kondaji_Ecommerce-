@@ -48,16 +48,19 @@ const RegisterForm = ({ role }) => {
   }
 
   const onSubmit = async (data) => {
-    try {
-      await axios.post('https://kondaji-express-api.onrender.com/api/auth/register', {
-        ...data,
-        role,
-      });
-      setShowPopup(true);
-      reset();
-    } catch (err) {
-      alert(err.response?.data?.message || 'Registration failed');
-    }
+   try {
+  await axios.post('https://kondaji-express-api.onrender.com/api/auth/register', {
+    ...data,
+    role,
+  });
+  setShowPopup(true);
+  reset();
+  setRegistrationError('');
+} catch (err) {
+  const errorMessage = err.response?.data?.message || 'Registration failed. Please try again.';
+  setRegistrationError(errorMessage);
+}
+
   };
 
   const handlePopupClose = () => {
